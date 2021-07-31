@@ -16,7 +16,7 @@
             <mkorientfluid mk="0" orient="Xyz" />
         </mkconfig>
         <geometry>
-            <definition dp="0.05" comment="Initial inter-particle distance" units_comment="metres (m)">
+            <definition dp="0.02" comment="Initial inter-particle distance" units_comment="metres (m)">
                 <pointmin x="-1" y="0" z="-1" />
                 <pointmax x="6" y="0" z="1.5" />
             </definition>

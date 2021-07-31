@@ -1,0 +1,12 @@
+CaseSolitaryWallTry1_Def
+-----------------------------------------
+Length = 2.5m
+Depth = 0.25m
+Wave Height = 0.125m
+
+
+CaseSolitaryWall_Def
+-----------------------------------------
+Length = 2.5m
+Depth = 0.25m
+Wave Height = 0.075m

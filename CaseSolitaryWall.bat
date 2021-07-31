@@ -73,4 +73,3 @@ goto end
 echo Execution aborted.
 
 :end
-pause

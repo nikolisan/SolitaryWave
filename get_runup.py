@@ -68,6 +68,7 @@ def get_maximum_runup(dirname):
 
 if __name__ == '__main__':
     import matplotlib.pyplot as plt
+    import argparse
 
     def plot_test(dirname):
         vlist = get_vtks_list(dirname)
@@ -82,8 +83,17 @@ if __name__ == '__main__':
         plt.scatter(x, z)
         plt.show()
 
-    dirname = os.path.join(os.getcwd(),'KdV\CaseSolitaryWallS2_out\particles')
 
+    parser = argparse.ArgumentParser(description='Extracts the maximum runup value for a given simulation')
+    parser.add_argument('-c', '--case', dest='case', required=True,metavar='CASE', help='Case name')
+    parser.add_argument('-m', '--method', dest='method', required=False, metavar='METHOD', help='Wave generation method')
+    args = parser.parse_args()
+    case = args.case + '_out'
+    method = args.method
+    if method is not None:
+        dirname = os.path.join(os.getcwd(), method + '\\' + case + '\particles')
+    else:
+        dirname = os.path.join(os.getcwd(), case + '\particles')
+    
     max_runup, ind = get_maximum_runup(dirname)
-
     print('Maximum runup in: ', ind, ' : ', max_runup)

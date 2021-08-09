@@ -1,0 +1,2028 @@
+Help on vtkDataSetReader object:
+
+class vtkDataSetReader(vtkDataReader)
+ |  vtkDataSetReader - class to read any type of vtk dataset
+ |
+ |  Superclass: vtkDataReader
+ |
+ |  vtkDataSetReader is a class that provides instance variables and
+ |  methods to read any type of dataset in Visualization Toolkit (vtk)
+ |  format.  The output type of this class will vary depending upon the
+ |  type of data file. Convenience methods are provided to keep the data
+ |  as a particular type. (See text for format description details). The
+ |  superclass of this class, vtkDataReader, provides many methods for
+ |  controlling the reading of the data file, see vtkDataReader for more
+ |  information.
+ |  @warning
+ |  Binary files written on one system may not be readable on other
+ |  systems.
+ |  @sa
+ |  vtkDataReader vtkPolyDataReader vtkRectilinearGridReader
+ |  vtkStructuredPointsReader vtkStructuredGridReader
+ |  vtkUnstructuredGridReader
+ |
+ |  Method resolution order:
+ |      vtkDataSetReader
+ |      vtkDataReader
+ |      vtkmodules.vtkCommonExecutionModel.vtkSimpleReader
+ |      vtkmodules.vtkCommonExecutionModel.vtkReaderAlgorithm
+ |      vtkmodules.vtkCommonExecutionModel.vtkAlgorithm
+ |      vtkmodules.vtkCommonCore.vtkObject
+ |      vtkmodules.vtkCommonCore.vtkObjectBase
+ |      builtins.object
+ |
+ |  Methods defined here:
+ |
+ |  GetNumberOfGenerationsFromBase(...)
+ |      V.GetNumberOfGenerationsFromBase(string) -> int
+ |      C++: vtkIdType GetNumberOfGenerationsFromBase(const char *type)
+ |          override;
+ |
+ |      Given the name of a base class of this class type, return the
+ |      distance of inheritance between this class type and the named
+ |      class (how many generations of inheritance are there between this
+ |      class and the named class). If the named class is not in this
+ |      class's inheritance tree, return a negative value. Valid
+ |      responses will always be nonnegative. This method works in
+ |      combination with vtkTypeMacro found in vtkSetGet.h.
+ |
+ |  GetNumberOfGenerationsFromBaseType(...)
+ |      V.GetNumberOfGenerationsFromBaseType(string) -> int
+ |      C++: static vtkIdType GetNumberOfGenerationsFromBaseType(
+ |          const char *type)
+ |
+ |      Given a the name of a base class of this class type, return the
+ |      distance of inheritance between this class type and the named
+ |      class (how many generations of inheritance are there between this
+ |      class and the named class). If the named class is not in this
+ |      class's inheritance tree, return a negative value. Valid
+ |      responses will always be nonnegative. This method works in
+ |      combination with vtkTypeMacro found in vtkSetGet.h.
+ |
+ |  GetOutput(...)
+ |      V.GetOutput() -> vtkDataSet
+ |      C++: vtkDataSet *GetOutput()
+ |      V.GetOutput(int) -> vtkDataSet
+ |      C++: vtkDataSet *GetOutput(int idx)
+ |
+ |      Get the output of this filter
+ |
+ |  GetPolyDataOutput(...)
+ |      V.GetPolyDataOutput() -> vtkPolyData
+ |      C++: vtkPolyData *GetPolyDataOutput()
+ |
+ |      Get the output as various concrete types. This method is
+ |      typically used when you know exactly what type of data is being
+ |      read.  Otherwise, use the general GetOutput() method. If the
+ |      wrong type is used nullptr is returned.  (You must also set the
+ |      filename of the object prior to getting the output.)
+ |
+ |  GetRectilinearGridOutput(...)
+ |      V.GetRectilinearGridOutput() -> vtkRectilinearGrid
+ |      C++: vtkRectilinearGrid *GetRectilinearGridOutput()
+ |
+ |      Get the output as various concrete types. This method is
+ |      typically used when you know exactly what type of data is being
+ |      read.  Otherwise, use the general GetOutput() method. If the
+ |      wrong type is used nullptr is returned.  (You must also set the
+ |      filename of the object prior to getting the output.)
+ |
+ |  GetStructuredGridOutput(...)
+ |      V.GetStructuredGridOutput() -> vtkStructuredGrid
+ |      C++: vtkStructuredGrid *GetStructuredGridOutput()
+ |
+ |      Get the output as various concrete types. This method is
+ |      typically used when you know exactly what type of data is being
+ |      read.  Otherwise, use the general GetOutput() method. If the
+ |      wrong type is used nullptr is returned.  (You must also set the
+ |      filename of the object prior to getting the output.)
+ |
+ |  GetStructuredPointsOutput(...)
+ |      V.GetStructuredPointsOutput() -> vtkStructuredPoints
+ |      C++: vtkStructuredPoints *GetStructuredPointsOutput()
+ |
+ |      Get the output as various concrete types. This method is
+ |      typically used when you know exactly what type of data is being
+ |      read.  Otherwise, use the general GetOutput() method. If the
+ |      wrong type is used nullptr is returned.  (You must also set the
+ |      filename of the object prior to getting the output.)
+ |
+ |  GetUnstructuredGridOutput(...)
+ |      V.GetUnstructuredGridOutput() -> vtkUnstructuredGrid
+ |      C++: vtkUnstructuredGrid *GetUnstructuredGridOutput()
+ |
+ |      Get the output as various concrete types. This method is
+ |      typically used when you know exactly what type of data is being
+ |      read.  Otherwise, use the general GetOutput() method. If the
+ |      wrong type is used nullptr is returned.  (You must also set the
+ |      filename of the object prior to getting the output.)
+ |
+ |  IsA(...)
+ |      V.IsA(string) -> int
+ |      C++: vtkTypeBool IsA(const char *type) override;
+ |
+ |      Return 1 if this class is the same type of (or a subclass of) the
+ |      named class. Returns 0 otherwise. This method works in
+ |      combination with vtkTypeMacro found in vtkSetGet.h.
+ |
+ |  IsTypeOf(...)
+ |      V.IsTypeOf(string) -> int
+ |      C++: static vtkTypeBool IsTypeOf(const char *type)
+ |
+ |      Return 1 if this class type is the same type of (or a subclass
+ |      of) the named class. Returns 0 otherwise. This method works in
+ |      combination with vtkTypeMacro found in vtkSetGet.h.
+ |
+ |  NewInstance(...)
+ |      V.NewInstance() -> vtkDataSetReader
+ |      C++: vtkDataSetReader *NewInstance()
+ |
+ |  ReadMeshSimple(...)
+ |      V.ReadMeshSimple(string, vtkDataObject) -> int
+ |      C++: int ReadMeshSimple(const std::string &fname,
+ |          vtkDataObject *output) override;
+ |
+ |      Actual reading happens here
+ |
+ |  ReadMetaDataSimple(...)
+ |      V.ReadMetaDataSimple(string, vtkInformation) -> int
+ |      C++: int ReadMetaDataSimple(const std::string &fname,
+ |          vtkInformation *metadata) override;
+ |
+ |      Read metadata from file.
+ |
+ |  ReadOutputType(...)
+ |      V.ReadOutputType() -> int
+ |      C++: virtual int ReadOutputType()
+ |
+ |      This method can be used to find out the type of output expected
+ |      without needing to read the whole file.
+ |
+ |  SafeDownCast(...)
+ |      V.SafeDownCast(vtkObjectBase) -> vtkDataSetReader
+ |      C++: static vtkDataSetReader *SafeDownCast(vtkObjectBase *o)
+ |
+ |  __delattr__(self, name, /)
+ |      Implement delattr(self, name).
+ |
+ |  __getattribute__(self, name, /)
+ |      Return getattr(self, name).
+ |
+ |  __repr__(self, /)
+ |      Return repr(self).
+ |
+ |  __setattr__(self, name, value, /)
+ |      Implement setattr(self, name, value).
+ |
+ |  __str__(self, /)
+ |      Return str(self).
+ |
+ |  ----------------------------------------------------------------------
+ |  Static methods defined here:
+ |
+ |  __new__(*args, **kwargs) from builtins.type
+ |      Create and return a new object.  See help(type) for accurate signature.
+ |
+ |  ----------------------------------------------------------------------
+ |  Data descriptors defined here:
+ |
+ |  __dict__
+ |      Dictionary of attributes set by user.
+ |
+ |  __this__
+ |      Pointer to the C++ object.
+ |
+ |  ----------------------------------------------------------------------
+ |  Data and other attributes defined here:
+ |
+ |  __vtkname__ = 'vtkDataSetReader'
+ |
+ |  ----------------------------------------------------------------------
+ |  Methods inherited from vtkDataReader:
+ |
+ |  CloseVTKFile(...)
+ |      V.CloseVTKFile()
+ |      C++: void CloseVTKFile()
+ |
+ |      Close the vtk file.
+ |
+ |  GetFieldDataName(...)
+ |      V.GetFieldDataName() -> string
+ |      C++: virtual char *GetFieldDataName()
+ |
+ |      Set the name of the field data to extract. If not specified, uses
+ |      first field data encountered in file.
+ |
+ |  GetFieldDataNameInFile(...)
+ |      V.GetFieldDataNameInFile(int) -> string
+ |      C++: const char *GetFieldDataNameInFile(int i)
+ |
+ |      What is the name of the ith attribute of a certain type in this
+ |      file? This requires reading the file, so the filename must be set
+ |      prior to invoking this operation.
+ |
+ |  GetFileMajorVersion(...)
+ |      V.GetFileMajorVersion() -> int
+ |      C++: virtual int GetFileMajorVersion()
+ |
+ |      Return major and minor version of the file. Returns version 3.0
+ |      if the version cannot be read from file.
+ |
+ |  GetFileMinorVersion(...)
+ |      V.GetFileMinorVersion() -> int
+ |      C++: virtual int GetFileMinorVersion()
+ |
+ |      Return major and minor version of the file. Returns version 3.0
+ |      if the version cannot be read from file.
+ |
+ |  GetFileName(...)
+ |      V.GetFileName() -> string
+ |      C++: const char *GetFileName()
+ |      V.GetFileName(int) -> string
+ |      C++: const char *GetFileName(int i)
+ |
+ |      Specify file name of vtk data file to read. This is just a
+ |      convenience method that calls the superclass' AddFileName method.
+ |
+ |  GetFileType(...)
+ |      V.GetFileType() -> int
+ |      C++: virtual int GetFileType()
+ |
+ |      Get the type of file (ASCII or BINARY). Returned value only valid
+ |      after file has been read.
+ |
+ |  GetHeader(...)
+ |      V.GetHeader() -> string
+ |      C++: virtual char *GetHeader()
+ |
+ |      Get the header from the vtk data file.
+ |
+ |  GetInputArray(...)
+ |      V.GetInputArray() -> vtkCharArray
+ |      C++: virtual vtkCharArray *GetInputArray()
+ |
+ |      Specify the vtkCharArray to be used  when reading from a string.
+ |      If set, this array has precedence over InputString. Use this
+ |      instead of InputString to avoid the extra memory copy. It should
+ |      be noted that if the underlying char* is owned by the user (
+ |      vtkCharArray::SetArray(array, 1); ) and is deleted before the
+ |      reader, bad things will happen during a pipeline update.
+ |
+ |  GetInputString(...)
+ |      V.GetInputString() -> string
+ |      C++: virtual char *GetInputString()
+ |
+ |      Specify the InputString for use when reading from a character
+ |      array. Optionally include the length for binary strings. Note
+ |      that a copy of the string is made and stored. If this causes
+ |      exceedingly large memory consumption, consider using InputArray
+ |      instead.
+ |
+ |  GetInputStringLength(...)
+ |      V.GetInputStringLength() -> int
+ |      C++: virtual int GetInputStringLength()
+ |
+ |      Specify the InputString for use when reading from a character
+ |      array. Optionally include the length for binary strings. Note
+ |      that a copy of the string is made and stored. If this causes
+ |      exceedingly large memory consumption, consider using InputArray
+ |      instead.
+ |
+ |  GetLookupTableName(...)
+ |      V.GetLookupTableName() -> string
+ |      C++: virtual char *GetLookupTableName()
+ |
+ |      Set the name of the lookup table data to extract. If not
+ |      specified, uses lookup table named by scalar. Otherwise, this
+ |      specification supersedes.
+ |
+ |  GetNormalsName(...)
+ |      V.GetNormalsName() -> string
+ |      C++: virtual char *GetNormalsName()
+ |
+ |      Set the name of the normal data to extract. If not specified,
+ |      first normal data encountered is extracted.
+ |
+ |  GetNormalsNameInFile(...)
+ |      V.GetNormalsNameInFile(int) -> string
+ |      C++: const char *GetNormalsNameInFile(int i)
+ |
+ |      What is the name of the ith attribute of a certain type in this
+ |      file? This requires reading the file, so the filename must be set
+ |      prior to invoking this operation.
+ |
+ |  GetNumberOfFieldDataInFile(...)
+ |      V.GetNumberOfFieldDataInFile() -> int
+ |      C++: int GetNumberOfFieldDataInFile()
+ |
+ |  GetNumberOfNormalsInFile(...)
+ |      V.GetNumberOfNormalsInFile() -> int
+ |      C++: int GetNumberOfNormalsInFile()
+ |
+ |  GetNumberOfScalarsInFile(...)
+ |      V.GetNumberOfScalarsInFile() -> int
+ |      C++: int GetNumberOfScalarsInFile()
+ |
+ |      How many attributes of various types are in this file? This
+ |      requires reading the file, so the filename must be set prior to
+ |      invoking this operation. (Note: file characteristics are cached,
+ |      so only a single read is necessary to return file
+ |      characteristics.)
+ |
+ |  GetNumberOfTCoordsInFile(...)
+ |      V.GetNumberOfTCoordsInFile() -> int
+ |      C++: int GetNumberOfTCoordsInFile()
+ |
+ |  GetNumberOfTensorsInFile(...)
+ |      V.GetNumberOfTensorsInFile() -> int
+ |      C++: int GetNumberOfTensorsInFile()
+ |
+ |  GetNumberOfVectorsInFile(...)
+ |      V.GetNumberOfVectorsInFile() -> int
+ |      C++: int GetNumberOfVectorsInFile()
+ |
+ |  GetReadAllColorScalars(...)
+ |      V.GetReadAllColorScalars() -> int
+ |      C++: virtual vtkTypeBool GetReadAllColorScalars()
+ |
+ |      Enable reading all color scalars.
+ |
+ |  GetReadAllFields(...)
+ |      V.GetReadAllFields() -> int
+ |      C++: virtual vtkTypeBool GetReadAllFields()
+ |
+ |      Enable reading all fields.
+ |
+ |  GetReadAllNormals(...)
+ |      V.GetReadAllNormals() -> int
+ |      C++: virtual vtkTypeBool GetReadAllNormals()
+ |
+ |      Enable reading all normals.
+ |
+ |  GetReadAllScalars(...)
+ |      V.GetReadAllScalars() -> int
+ |      C++: virtual vtkTypeBool GetReadAllScalars()
+ |
+ |      Enable reading all scalars.
+ |
+ |  GetReadAllTCoords(...)
+ |      V.GetReadAllTCoords() -> int
+ |      C++: virtual vtkTypeBool GetReadAllTCoords()
+ |
+ |      Enable reading all tcoords.
+ |
+ |  GetReadAllTensors(...)
+ |      V.GetReadAllTensors() -> int
+ |      C++: virtual vtkTypeBool GetReadAllTensors()
+ |
+ |      Enable reading all tensors.
+ |
+ |  GetReadAllVectors(...)
+ |      V.GetReadAllVectors() -> int
+ |      C++: virtual vtkTypeBool GetReadAllVectors()
+ |
+ |      Enable reading all vectors.
+ |
+ |  GetReadFromInputString(...)
+ |      V.GetReadFromInputString() -> int
+ |      C++: virtual vtkTypeBool GetReadFromInputString()
+ |
+ |      Enable reading from an InputString or InputArray instead of the
+ |      default, a file.
+ |
+ |  GetScalarsName(...)
+ |      V.GetScalarsName() -> string
+ |      C++: virtual char *GetScalarsName()
+ |
+ |      Set the name of the scalar data to extract. If not specified,
+ |      first scalar data encountered is extracted.
+ |
+ |  GetScalarsNameInFile(...)
+ |      V.GetScalarsNameInFile(int) -> string
+ |      C++: const char *GetScalarsNameInFile(int i)
+ |
+ |      What is the name of the ith attribute of a certain type in this
+ |      file? This requires reading the file, so the filename must be set
+ |      prior to invoking this operation.
+ |
+ |  GetTCoordsName(...)
+ |      V.GetTCoordsName() -> string
+ |      C++: virtual char *GetTCoordsName()
+ |
+ |      Set the name of the texture coordinate data to extract. If not
+ |      specified, first texture coordinate data encountered is
+ |      extracted.
+ |
+ |  GetTCoordsNameInFile(...)
+ |      V.GetTCoordsNameInFile(int) -> string
+ |      C++: const char *GetTCoordsNameInFile(int i)
+ |
+ |      What is the name of the ith attribute of a certain type in this
+ |      file? This requires reading the file, so the filename must be set
+ |      prior to invoking this operation.
+ |
+ |  GetTensorsName(...)
+ |      V.GetTensorsName() -> string
+ |      C++: virtual char *GetTensorsName()
+ |
+ |      Set the name of the tensor data to extract. If not specified,
+ |      first tensor data encountered is extracted.
+ |
+ |  GetTensorsNameInFile(...)
+ |      V.GetTensorsNameInFile(int) -> string
+ |      C++: const char *GetTensorsNameInFile(int i)
+ |
+ |      What is the name of the ith attribute of a certain type in this
+ |      file? This requires reading the file, so the filename must be set
+ |      prior to invoking this operation.
+ |
+ |  GetVectorsName(...)
+ |      V.GetVectorsName() -> string
+ |      C++: virtual char *GetVectorsName()
+ |
+ |      Set the name of the vector data to extract. If not specified,
+ |      first vector data encountered is extracted.
+ |
+ |  GetVectorsNameInFile(...)
+ |      V.GetVectorsNameInFile(int) -> string
+ |      C++: const char *GetVectorsNameInFile(int i)
+ |
+ |      What is the name of the ith attribute of a certain type in this
+ |      file? This requires reading the file, so the filename must be set
+ |      prior to invoking this operation.
+ |
+ |  IsFilePolyData(...)
+ |      V.IsFilePolyData() -> int
+ |      C++: int IsFilePolyData()
+ |
+ |      Is the file a valid vtk file of the passed dataset type ? The
+ |      dataset type is passed as a lower case string.
+ |
+ |  IsFileRectilinearGrid(...)
+ |      V.IsFileRectilinearGrid() -> int
+ |      C++: int IsFileRectilinearGrid()
+ |
+ |      Is the file a valid vtk file of the passed dataset type ? The
+ |      dataset type is passed as a lower case string.
+ |
+ |  IsFileStructuredGrid(...)
+ |      V.IsFileStructuredGrid() -> int
+ |      C++: int IsFileStructuredGrid()
+ |
+ |      Is the file a valid vtk file of the passed dataset type ? The
+ |      dataset type is passed as a lower case string.
+ |
+ |  IsFileStructuredPoints(...)
+ |      V.IsFileStructuredPoints() -> int
+ |      C++: int IsFileStructuredPoints()
+ |
+ |      Is the file a valid vtk file of the passed dataset type ? The
+ |      dataset type is passed as a lower case string.
+ |
+ |  IsFileUnstructuredGrid(...)
+ |      V.IsFileUnstructuredGrid() -> int
+ |      C++: int IsFileUnstructuredGrid()
+ |
+ |      Is the file a valid vtk file of the passed dataset type ? The
+ |      dataset type is passed as a lower case string.
+ |
+ |  IsFileValid(...)
+ |      V.IsFileValid(string) -> int
+ |      C++: int IsFileValid(const char *dstype)
+ |
+ |      Is the file a valid vtk file of the passed dataset type ? The
+ |      dataset type is passed as a lower case string.
+ |
+ |  LowerCase(...)
+ |      V.LowerCase(string, int) -> string
+ |      C++: char *LowerCase(char *str, const size_t len=256)
+ |
+ |      Helper method for reading in data.
+ |
+ |  OpenVTKFile(...)
+ |      V.OpenVTKFile(string) -> int
+ |      C++: int OpenVTKFile(const char *fname=nullptr)
+ |
+ |      Open a vtk data file. Returns zero if error.
+ |
+ |  Peek(...)
+ |      V.Peek(string, int) -> int
+ |      C++: size_t Peek(char *str, size_t n)
+ |
+ |      Read n character from the stream into str, then reset the stream
+ |      position. Returns the number of characters actually read.
+ |
+ |  Read(...)
+ |      V.Read(string) -> int
+ |      C++: int Read(char *)
+ |      V.Read([int, ...]) -> int
+ |      C++: int Read(int *)
+ |      V.Read([int, ...]) -> int
+ |      C++: int Read(long *)
+ |      V.Read([int, ...]) -> int
+ |      C++: int Read(long long *result)
+ |      V.Read([float, ...]) -> int
+ |      C++: int Read(double *)
+ |
+ |      Internal function to read in a value.  Returns zero if there was
+ |      an error.
+ |
+ |  ReadAllColorScalarsOff(...)
+ |      V.ReadAllColorScalarsOff()
+ |      C++: virtual void ReadAllColorScalarsOff()
+ |
+ |      Enable reading all color scalars.
+ |
+ |  ReadAllColorScalarsOn(...)
+ |      V.ReadAllColorScalarsOn()
+ |      C++: virtual void ReadAllColorScalarsOn()
+ |
+ |      Enable reading all color scalars.
+ |
+ |  ReadAllFieldsOff(...)
+ |      V.ReadAllFieldsOff()
+ |      C++: virtual void ReadAllFieldsOff()
+ |
+ |      Enable reading all fields.
+ |
+ |  ReadAllFieldsOn(...)
+ |      V.ReadAllFieldsOn()
+ |      C++: virtual void ReadAllFieldsOn()
+ |
+ |      Enable reading all fields.
+ |
+ |  ReadAllNormalsOff(...)
+ |      V.ReadAllNormalsOff()
+ |      C++: virtual void ReadAllNormalsOff()
+ |
+ |      Enable reading all normals.
+ |
+ |  ReadAllNormalsOn(...)
+ |      V.ReadAllNormalsOn()
+ |      C++: virtual void ReadAllNormalsOn()
+ |
+ |      Enable reading all normals.
+ |
+ |  ReadAllScalarsOff(...)
+ |      V.ReadAllScalarsOff()
+ |      C++: virtual void ReadAllScalarsOff()
+ |
+ |      Enable reading all scalars.
+ |
+ |  ReadAllScalarsOn(...)
+ |      V.ReadAllScalarsOn()
+ |      C++: virtual void ReadAllScalarsOn()
+ |
+ |      Enable reading all scalars.
+ |
+ |  ReadAllTCoordsOff(...)
+ |      V.ReadAllTCoordsOff()
+ |      C++: virtual void ReadAllTCoordsOff()
+ |
+ |      Enable reading all tcoords.
+ |
+ |  ReadAllTCoordsOn(...)
+ |      V.ReadAllTCoordsOn()
+ |      C++: virtual void ReadAllTCoordsOn()
+ |
+ |      Enable reading all tcoords.
+ |
+ |  ReadAllTensorsOff(...)
+ |      V.ReadAllTensorsOff()
+ |      C++: virtual void ReadAllTensorsOff()
+ |
+ |      Enable reading all tensors.
+ |
+ |  ReadAllTensorsOn(...)
+ |      V.ReadAllTensorsOn()
+ |      C++: virtual void ReadAllTensorsOn()
+ |
+ |      Enable reading all tensors.
+ |
+ |  ReadAllVectorsOff(...)
+ |      V.ReadAllVectorsOff()
+ |      C++: virtual void ReadAllVectorsOff()
+ |
+ |      Enable reading all vectors.
+ |
+ |  ReadAllVectorsOn(...)
+ |      V.ReadAllVectorsOn()
+ |      C++: virtual void ReadAllVectorsOn()
+ |
+ |      Enable reading all vectors.
+ |
+ |  ReadArray(...)
+ |      V.ReadArray(string, int, int) -> vtkAbstractArray
+ |      C++: vtkAbstractArray *ReadArray(const char *dataType,
+ |          vtkIdType numTuples, vtkIdType numComp)
+ |
+ |      Helper functions for reading data.
+ |
+ |  ReadArrays(...)
+ |      V.ReadArrays(int, int, int, int, vtkDataObject) -> int
+ |      C++: int ReadArrays(int, int, int, int, vtkDataObject *) override;
+ |
+ |      Overridden to handle reading from a string. The superclass only
+ |      knows about files.
+ |
+ |  ReadArraysSimple(...)
+ |      V.ReadArraysSimple(string, vtkDataObject) -> int
+ |      C++: int ReadArraysSimple(const std::string &, vtkDataObject *)
+ |          override;
+ |
+ |      Overridden with default implementation of doing nothing so that
+ |      subclasses only override what is needed (usually only ReadMesh).
+ |
+ |  ReadCellData(...)
+ |      V.ReadCellData(vtkDataSet, int) -> int
+ |      C++: int ReadCellData(vtkDataSet *ds, vtkIdType numCells)
+ |
+ |      Read the cell data of a vtk data file. The number of cells (from
+ |      the dataset) must match the number of cells defined in cell
+ |      attributes (unless no geometry was defined).
+ |
+ |  ReadCells(...)
+ |      V.ReadCells(vtkSmartPointer_I12vtkCellArrayE) -> int
+ |      C++: int ReadCells(vtkSmartPointer<vtkCellArray> &cellArray)
+ |
+ |      Read cells in a vtkCellArray, and update the smartpointer
+ |      reference passed in. If no cells are present in the file,
+ |      cellArray will be set to nullptr. Returns 0 if error.
+ |
+ |  ReadCellsLegacy(...)
+ |      V.ReadCellsLegacy(int, [int, ...]) -> int
+ |      C++: int ReadCellsLegacy(vtkIdType size, int *data)
+ |      V.ReadCellsLegacy(int, [int, ...], int, int, int) -> int
+ |      C++: int ReadCellsLegacy(vtkIdType size, int *data, int skip1,
+ |          int read2, int skip3)
+ |
+ |      Read a bunch of "cells". Return 0 if error.
+ |
+ |      ote Legacy implementation for file versions < 5.0.
+ |
+ |  ReadCoordinates(...)
+ |      V.ReadCoordinates(vtkRectilinearGrid, int, int) -> int
+ |      C++: int ReadCoordinates(vtkRectilinearGrid *rg, int axes,
+ |          int numCoords)
+ |
+ |      Read the coordinates for a rectilinear grid. The axes parameter
+ |      specifies which coordinate axes (0,1,2) is being read.
+ |
+ |  ReadEdgeData(...)
+ |      V.ReadEdgeData(vtkGraph, int) -> int
+ |      C++: int ReadEdgeData(vtkGraph *g, vtkIdType numEdges)
+ |
+ |      Read the edge data of a vtk data file. The number of edges (from
+ |      the graph) must match the number of edges defined in edge
+ |      attributes (unless no geometry was defined).
+ |
+ |  ReadFieldData(...)
+ |      V.ReadFieldData(FieldType) -> vtkFieldData
+ |      C++: vtkFieldData *ReadFieldData(FieldType fieldType=FIELD_DATA)
+ |
+ |      Helper functions for reading data.
+ |
+ |  ReadFromInputStringOff(...)
+ |      V.ReadFromInputStringOff()
+ |      C++: virtual void ReadFromInputStringOff()
+ |
+ |      Enable reading from an InputString or InputArray instead of the
+ |      default, a file.
+ |
+ |  ReadFromInputStringOn(...)
+ |      V.ReadFromInputStringOn()
+ |      C++: virtual void ReadFromInputStringOn()
+ |
+ |      Enable reading from an InputString or InputArray instead of the
+ |      default, a file.
+ |
+ |  ReadHeader(...)
+ |      V.ReadHeader(string) -> int
+ |      C++: int ReadHeader(const char *fname=nullptr)
+ |
+ |      Read the header of a vtk data file. Returns 0 if error.
+ |
+ |  ReadLine(...)
+ |      V.ReadLine([char, char, char, char, char, char, char, char, char,
+ |          char, char, char, char, char, char, char, char, char, char,
+ |          char, char, char, char, char, char, char, char, char, char,
+ |          char, char, char, char, char, char, char, char, char, char,
+ |          char, char, char, char, char, char, char, char, char, char,
+ |          char, char, char, char, char, char, char, char, char, char,
+ |          char, char, char, char, char, char, char, char, char, char,
+ |          char, char, char, char, char, char, char, char, char, char,
+ |          char, char, char, char, char, char, char, char, char, char,
+ |          char, char, char, char, char, char, char, char, char, char,
+ |          char, char, char, char, char, char, char, char, char, char,
+ |          char, char, char, char, char, char, char, char, char, char,
+ |          char, char, char, char, char, char, char, char, char, char,
+ |          char, char, char, char, char, char, char, char, char, char,
+ |          char, char, char, char, char, char, char, char, char, char,
+ |          char, char, char, char, char, char, char, char, char, char,
+ |          char, char, char, char, char, char, char, char, char, char,
+ |          char, char, char, char, char, char, char, char, char, char,
+ |          char, char, char, char, char, char, char, char, char, char,
+ |          char, char, char, char, char, char, char, char, char, char,
+ |          char, char, char, char, char, char, char, char, char, char,
+ |          char, char, char, char, char, char, char, char, char, char,
+ |          char, char, char, char, char, char, char, char, char, char,
+ |          char, char, char, char, char, char, char, char, char, char,
+ |          char, char, char, char, char, char, char, char, char, char,
+ |          char, char, char, char, char, char, char]) -> int
+ |      C++: int ReadLine(char result[256])
+ |
+ |      Internal function to read in a line up to 256 characters. Returns
+ |      zero if there was an error.
+ |
+ |  ReadMesh(...)
+ |      V.ReadMesh(int, int, int, int, vtkDataObject) -> int
+ |      C++: int ReadMesh(int piece, int npieces, int nghosts,
+ |          int timestep, vtkDataObject *output) override;
+ |
+ |      Overridden to handle reading from a string. The superclass only
+ |      knows about files.
+ |
+ |  ReadPointCoordinates(...)
+ |      V.ReadPointCoordinates(vtkPointSet, int) -> int
+ |      C++: int ReadPointCoordinates(vtkPointSet *ps, vtkIdType numPts)
+ |      V.ReadPointCoordinates(vtkGraph, int) -> int
+ |      C++: int ReadPointCoordinates(vtkGraph *g, vtkIdType numPts)
+ |
+ |      Read point coordinates. Return 0 if error.
+ |
+ |  ReadPointData(...)
+ |      V.ReadPointData(vtkDataSet, int) -> int
+ |      C++: int ReadPointData(vtkDataSet *ds, vtkIdType numPts)
+ |
+ |      Read the point data of a vtk data file. The number of points
+ |      (from the dataset) must match the number of points defined in
+ |      point attributes (unless no geometry was defined).
+ |
+ |  ReadPoints(...)
+ |      V.ReadPoints(int, int, int, int, vtkDataObject) -> int
+ |      C++: int ReadPoints(int, int, int, int, vtkDataObject *) override;
+ |
+ |      Overridden to handle reading from a string. The superclass only
+ |      knows about files.
+ |
+ |  ReadPointsSimple(...)
+ |      V.ReadPointsSimple(string, vtkDataObject) -> int
+ |      C++: int ReadPointsSimple(const std::string &, vtkDataObject *)
+ |          override;
+ |
+ |      Overridden with default implementation of doing nothing so that
+ |      subclasses only override what is needed (usually only ReadMesh).
+ |
+ |  ReadRowData(...)
+ |      V.ReadRowData(vtkTable, int) -> int
+ |      C++: int ReadRowData(vtkTable *t, vtkIdType numEdges)
+ |
+ |      Read the row data of a vtk data file.
+ |
+ |  ReadString(...)
+ |      V.ReadString([char, char, char, char, char, char, char, char,
+ |          char, char, char, char, char, char, char, char, char, char,
+ |          char, char, char, char, char, char, char, char, char, char,
+ |          char, char, char, char, char, char, char, char, char, char,
+ |          char, char, char, char, char, char, char, char, char, char,
+ |          char, char, char, char, char, char, char, char, char, char,
+ |          char, char, char, char, char, char, char, char, char, char,
+ |          char, char, char, char, char, char, char, char, char, char,
+ |          char, char, char, char, char, char, char, char, char, char,
+ |          char, char, char, char, char, char, char, char, char, char,
+ |          char, char, char, char, char, char, char, char, char, char,
+ |          char, char, char, char, char, char, char, char, char, char,
+ |          char, char, char, char, char, char, char, char, char, char,
+ |          char, char, char, char, char, char, char, char, char, char,
+ |          char, char, char, char, char, char, char, char, char, char,
+ |          char, char, char, char, char, char, char, char, char, char,
+ |          char, char, char, char, char, char, char, char, char, char,
+ |          char, char, char, char, char, char, char, char, char, char,
+ |          char, char, char, char, char, char, char, char, char, char,
+ |          char, char, char, char, char, char, char, char, char, char,
+ |          char, char, char, char, char, char, char, char, char, char,
+ |          char, char, char, char, char, char, char, char, char, char,
+ |          char, char, char, char, char, char, char, char, char, char,
+ |          char, char, char, char, char, char, char, char, char, char,
+ |          char, char, char, char, char, char, char, char, char, char,
+ |          char, char, char, char, char, char, char, char]) -> int
+ |      C++: int ReadString(char result[256])
+ |
+ |      Internal function to read in a string up to 256 characters.
+ |      Returns zero if there was an error.
+ |
+ |  ReadTimeDependentMetaData(...)
+ |      V.ReadTimeDependentMetaData(int, vtkInformation) -> int
+ |      C++: int ReadTimeDependentMetaData(int timestep,
+ |          vtkInformation *metadata) override;
+ |
+ |      Overridden to handle reading from a string. The superclass only
+ |      knows about files.
+ |
+ |  ReadVertexData(...)
+ |      V.ReadVertexData(vtkGraph, int) -> int
+ |      C++: int ReadVertexData(vtkGraph *g, vtkIdType numVertices)
+ |
+ |      Read the vertex data of a vtk data file. The number of vertices
+ |      (from the graph) must match the number of vertices defined in
+ |      vertex attributes (unless no geometry was defined).
+ |
+ |  SetBinaryInputString(...)
+ |      V.SetBinaryInputString(string, int)
+ |      C++: void SetBinaryInputString(const char *, int len)
+ |
+ |      Specify the InputString for use when reading from a character
+ |      array. Optionally include the length for binary strings. Note
+ |      that a copy of the string is made and stored. If this causes
+ |      exceedingly large memory consumption, consider using InputArray
+ |      instead.
+ |
+ |  SetFieldDataName(...)
+ |      V.SetFieldDataName(string)
+ |      C++: virtual void SetFieldDataName(const char *_arg)
+ |
+ |      Set the name of the field data to extract. If not specified, uses
+ |      first field data encountered in file.
+ |
+ |  SetFileName(...)
+ |      V.SetFileName(string)
+ |      C++: void SetFileName(const char *fname)
+ |
+ |      Specify file name of vtk data file to read. This is just a
+ |      convenience method that calls the superclass' AddFileName method.
+ |
+ |  SetInputArray(...)
+ |      V.SetInputArray(vtkCharArray)
+ |      C++: virtual void SetInputArray(vtkCharArray *)
+ |
+ |      Specify the vtkCharArray to be used  when reading from a string.
+ |      If set, this array has precedence over InputString. Use this
+ |      instead of InputString to avoid the extra memory copy. It should
+ |      be noted that if the underlying char* is owned by the user (
+ |      vtkCharArray::SetArray(array, 1); ) and is deleted before the
+ |      reader, bad things will happen during a pipeline update.
+ |
+ |  SetInputString(...)
+ |      V.SetInputString(string, int)
+ |      C++: void SetInputString(const char *in, int len)
+ |      V.SetInputString(string)
+ |      C++: void SetInputString(const vtkStdString &input)
+ |
+ |      Specify the InputString for use when reading from a character
+ |      array. Optionally include the length for binary strings. Note
+ |      that a copy of the string is made and stored. If this causes
+ |      exceedingly large memory consumption, consider using InputArray
+ |      instead.
+ |
+ |  SetLookupTableName(...)
+ |      V.SetLookupTableName(string)
+ |      C++: virtual void SetLookupTableName(const char *_arg)
+ |
+ |      Set the name of the lookup table data to extract. If not
+ |      specified, uses lookup table named by scalar. Otherwise, this
+ |      specification supersedes.
+ |
+ |  SetNormalsName(...)
+ |      V.SetNormalsName(string)
+ |      C++: virtual void SetNormalsName(const char *_arg)
+ |
+ |      Set the name of the normal data to extract. If not specified,
+ |      first normal data encountered is extracted.
+ |
+ |  SetReadAllColorScalars(...)
+ |      V.SetReadAllColorScalars(int)
+ |      C++: virtual void SetReadAllColorScalars(vtkTypeBool _arg)
+ |
+ |      Enable reading all color scalars.
+ |
+ |  SetReadAllFields(...)
+ |      V.SetReadAllFields(int)
+ |      C++: virtual void SetReadAllFields(vtkTypeBool _arg)
+ |
+ |      Enable reading all fields.
+ |
+ |  SetReadAllNormals(...)
+ |      V.SetReadAllNormals(int)
+ |      C++: virtual void SetReadAllNormals(vtkTypeBool _arg)
+ |
+ |      Enable reading all normals.
+ |
+ |  SetReadAllScalars(...)
+ |      V.SetReadAllScalars(int)
+ |      C++: virtual void SetReadAllScalars(vtkTypeBool _arg)
+ |
+ |      Enable reading all scalars.
+ |
+ |  SetReadAllTCoords(...)
+ |      V.SetReadAllTCoords(int)
+ |      C++: virtual void SetReadAllTCoords(vtkTypeBool _arg)
+ |
+ |      Enable reading all tcoords.
+ |
+ |  SetReadAllTensors(...)
+ |      V.SetReadAllTensors(int)
+ |      C++: virtual void SetReadAllTensors(vtkTypeBool _arg)
+ |
+ |      Enable reading all tensors.
+ |
+ |  SetReadAllVectors(...)
+ |      V.SetReadAllVectors(int)
+ |      C++: virtual void SetReadAllVectors(vtkTypeBool _arg)
+ |
+ |      Enable reading all vectors.
+ |
+ |  SetReadFromInputString(...)
+ |      V.SetReadFromInputString(int)
+ |      C++: virtual void SetReadFromInputString(vtkTypeBool _arg)
+ |
+ |      Enable reading from an InputString or InputArray instead of the
+ |      default, a file.
+ |
+ |  SetScalarsName(...)
+ |      V.SetScalarsName(string)
+ |      C++: virtual void SetScalarsName(const char *_arg)
+ |
+ |      Set the name of the scalar data to extract. If not specified,
+ |      first scalar data encountered is extracted.
+ |
+ |  SetTCoordsName(...)
+ |      V.SetTCoordsName(string)
+ |      C++: virtual void SetTCoordsName(const char *_arg)
+ |
+ |      Set the name of the texture coordinate data to extract. If not
+ |      specified, first texture coordinate data encountered is
+ |      extracted.
+ |
+ |  SetTensorsName(...)
+ |      V.SetTensorsName(string)
+ |      C++: virtual void SetTensorsName(const char *_arg)
+ |
+ |      Set the name of the tensor data to extract. If not specified,
+ |      first tensor data encountered is extracted.
+ |
+ |  SetVectorsName(...)
+ |      V.SetVectorsName(string)
+ |      C++: virtual void SetVectorsName(const char *_arg)
+ |
+ |      Set the name of the vector data to extract. If not specified,
+ |      first vector data encountered is extracted.
+ |
+ |  ----------------------------------------------------------------------
+ |  Data and other attributes inherited from vtkDataReader:
+ |
+ |  CELL_DATA = 1
+ |
+ |  FIELD_DATA = 2
+ |
+ |  FieldType = <class 'vtkmodules.vtkIOLegacy.vtkDataReader.FieldType'>
+ |      int([x]) -> integer
+ |      int(x, base=10) -> integer
+ |
+ |      Convert a number or string to an integer, or return 0 if no arguments
+ |      are given.  If x is a number, return x.__int__().  For floating point
+ |      numbers, this truncates towards zero.
+ |
+ |      If x is not a number or if base is given, then x must be a string,
+ |      bytes, or bytearray instance representing an integer literal in the
+ |      given base.  The literal can be preceded by '+' or '-' and be surrounded
+ |      by whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.
+ |      Base 0 means to interpret the base from the string as an integer literal.
+ |      >>> int('0b100', base=0)
+ |      4
+ |
+ |  POINT_DATA = 0
+ |
+ |  ----------------------------------------------------------------------
+ |  Methods inherited from vtkmodules.vtkCommonExecutionModel.vtkSimpleReader:
+ |
+ |  AddFileName(...)
+ |      V.AddFileName(string)
+ |      C++: void AddFileName(const char *fname)
+ |
+ |      Add a filename to be read. Since this superclass handles file
+ |      series to support time, multiple filenames can be added. Note
+ |      that the time values are either integers growing sequentially, or
+ |      are obtained from individual files as supported by the subclass.
+ |
+ |  ClearFileNames(...)
+ |      V.ClearFileNames()
+ |      C++: void ClearFileNames()
+ |
+ |      Removes all filenames stored by the reader.
+ |
+ |  GetCurrentFileName(...)
+ |      V.GetCurrentFileName() -> string
+ |      C++: const char *GetCurrentFileName()
+ |
+ |      Returns the filename that was last loaded by the reader. This is
+ |      set internally in ReadMesh()
+ |
+ |  GetNumberOfFileNames(...)
+ |      V.GetNumberOfFileNames() -> int
+ |      C++: int GetNumberOfFileNames()
+ |
+ |      Returns the number of filenames stored by the reader.
+ |
+ |  GetTimeValue(...)
+ |      V.GetTimeValue(string) -> float
+ |      C++: virtual double GetTimeValue(const std::string &fname)
+ |
+ |      A subclass can override this method to provide an actual time
+ |      value for a given file (this method is called for each filename
+ |      stored by the reader). If time values is not available, the
+ |      subclass does not have to override. This will return
+ |      vtkMath::NaN() if no time value is present in the file.
+ |
+ |  ReadMetaData(...)
+ |      V.ReadMetaData(vtkInformation) -> int
+ |      C++: int ReadMetaData(vtkInformation *metadata) override;
+ |
+ |      This is the superclass API overridden by this class to provide
+ |      time support internally. Subclasses should not normally have to
+ |      override these methods.
+ |
+ |  ----------------------------------------------------------------------
+ |  Methods inherited from vtkmodules.vtkCommonExecutionModel.vtkReaderAlgorithm:
+ |
+ |  CreateOutput(...)
+ |      V.CreateOutput(vtkDataObject) -> vtkDataObject
+ |      C++: virtual vtkDataObject *CreateOutput(
+ |          vtkDataObject *currentOutput)
+ |
+ |      This can be overridden by a subclass to create an output that is
+ |      determined by the file being read. If the output is known at
+ |      compile time, it is easier to override
+ |      FillOutputPortInformation() to set
+ |      vtkDataObject::DATA_TYPE_NAME(). The subclass should compare the
+ |      new output type with the type of the currentOutput argument and
+ |      return currentOutput without changing its reference count if the
+ |      types are same.
+ |
+ |  ----------------------------------------------------------------------
+ |  Methods inherited from vtkmodules.vtkCommonExecutionModel.vtkAlgorithm:
+ |
+ |  AbortExecuteOff(...)
+ |      V.AbortExecuteOff()
+ |      C++: virtual void AbortExecuteOff()
+ |
+ |      Set/Get the AbortExecute flag for the process object. Process
+ |      objects may handle premature termination of execution in
+ |      different ways.
+ |
+ |  AbortExecuteOn(...)
+ |      V.AbortExecuteOn()
+ |      C++: virtual void AbortExecuteOn()
+ |
+ |      Set/Get the AbortExecute flag for the process object. Process
+ |      objects may handle premature termination of execution in
+ |      different ways.
+ |
+ |  AddInputConnection(...)
+ |      V.AddInputConnection(int, vtkAlgorithmOutput)
+ |      C++: virtual void AddInputConnection(int port,
+ |          vtkAlgorithmOutput *input)
+ |      V.AddInputConnection(vtkAlgorithmOutput)
+ |      C++: virtual void AddInputConnection(vtkAlgorithmOutput *input)
+ |
+ |      Add a connection to the given input port index.  See
+ |      SetInputConnection() for details on input connections.  This
+ |      method is the complement to RemoveInputConnection() in that it
+ |      adds only the connection specified without affecting other
+ |      connections.  Typical usage is
+ |
+ |      * filter2->AddInputConnection(0, filter1->GetOutputPort(0)).
+ |
+ |  AddInputDataObject(...)
+ |      V.AddInputDataObject(int, vtkDataObject)
+ |      C++: virtual void AddInputDataObject(int port,
+ |          vtkDataObject *data)
+ |      V.AddInputDataObject(vtkDataObject)
+ |      C++: virtual void AddInputDataObject(vtkDataObject *data)
+ |
+ |      Add the data-object as an input to this given port. This will add
+ |      a new input connection on the specified port without affecting
+ |      any existing connections on the same input port.
+ |
+ |  CAN_HANDLE_PIECE_REQUEST(...)
+ |      V.CAN_HANDLE_PIECE_REQUEST() -> vtkInformationIntegerKey
+ |      C++: static vtkInformationIntegerKey *CAN_HANDLE_PIECE_REQUEST()
+ |
+ |      Key that tells the pipeline that a particular algorithm can or
+ |      cannot handle piece request. If a filter cannot handle piece
+ |      requests and is asked for a piece, the executive will flag an
+ |      error. If a structured data source cannot handle piece requests
+ |      but can produce sub-extents (CAN_PRODUCE_SUB_EXTENT), the
+ |      executive will use an extent translator to split the extent into
+ |      pieces. Otherwise, if a source cannot handle piece requests, the
+ |      executive will ask for the whole data for piece 0 and not execute
+ |      the source for other pieces.\ingroup InformationKeys
+ |
+ |  CAN_PRODUCE_SUB_EXTENT(...)
+ |      V.CAN_PRODUCE_SUB_EXTENT() -> vtkInformationIntegerKey
+ |      C++: static vtkInformationIntegerKey *CAN_PRODUCE_SUB_EXTENT()
+ |
+ |      This key tells the executive that a particular output port is
+ |      capable of producing an arbitrary subextent of the whole extent.
+ |      Many image sources and readers fall into this category but some
+ |      such as the legacy structured data readers cannot support this
+ |      feature.\ingroup InformationKeys
+ |
+ |  ConvertTotalInputToPortConnection(...)
+ |      V.ConvertTotalInputToPortConnection(int, int, int)
+ |      C++: void ConvertTotalInputToPortConnection(int ind, int &port,
+ |          int &conn)
+ |
+ |      Convenience routine to convert from a linear ordering of input
+ |      connections to a port/connection pair.
+ |
+ |  GetAbortExecute(...)
+ |      V.GetAbortExecute() -> int
+ |      C++: virtual vtkTypeBool GetAbortExecute()
+ |
+ |      Set/Get the AbortExecute flag for the process object. Process
+ |      objects may handle premature termination of execution in
+ |      different ways.
+ |
+ |  GetErrorCode(...)
+ |      V.GetErrorCode() -> int
+ |      C++: virtual unsigned long GetErrorCode()
+ |
+ |      The error code contains a possible error that occurred while
+ |      reading or writing the file.
+ |
+ |  GetExecutive(...)
+ |      V.GetExecutive() -> vtkExecutive
+ |      C++: vtkExecutive *GetExecutive()
+ |
+ |      Get this algorithm's executive.  If it has none, a default
+ |      executive will be created.
+ |
+ |  GetInformation(...)
+ |      V.GetInformation() -> vtkInformation
+ |      C++: virtual vtkInformation *GetInformation()
+ |
+ |      Set/Get the information object associated with this algorithm.
+ |
+ |  GetInputAlgorithm(...)
+ |      V.GetInputAlgorithm(int, int, int) -> vtkAlgorithm
+ |      C++: vtkAlgorithm *GetInputAlgorithm(int port, int index,
+ |          int &algPort)
+ |      V.GetInputAlgorithm(int, int) -> vtkAlgorithm
+ |      C++: vtkAlgorithm *GetInputAlgorithm(int port, int index)
+ |      V.GetInputAlgorithm() -> vtkAlgorithm
+ |      C++: vtkAlgorithm *GetInputAlgorithm()
+ |
+ |      Returns the algorithm and the output port index of that algorithm
+ |      connected to a port-index pair.
+ |
+ |  GetInputArrayInformation(...)
+ |      V.GetInputArrayInformation(int) -> vtkInformation
+ |      C++: vtkInformation *GetInputArrayInformation(int idx)
+ |
+ |      Get the info object for the specified input array to this
+ |      algorithm
+ |
+ |  GetInputConnection(...)
+ |      V.GetInputConnection(int, int) -> vtkAlgorithmOutput
+ |      C++: vtkAlgorithmOutput *GetInputConnection(int port, int index)
+ |
+ |      Get the algorithm output port connected to an input port.
+ |
+ |  GetInputDataObject(...)
+ |      V.GetInputDataObject(int, int) -> vtkDataObject
+ |      C++: vtkDataObject *GetInputDataObject(int port, int connection)
+ |
+ |      Get the data object that will contain the algorithm input for the
+ |      given port and given connection.
+ |
+ |  GetInputExecutive(...)
+ |      V.GetInputExecutive(int, int) -> vtkExecutive
+ |      C++: vtkExecutive *GetInputExecutive(int port, int index)
+ |      V.GetInputExecutive() -> vtkExecutive
+ |      C++: vtkExecutive *GetInputExecutive()
+ |
+ |      Returns the executive associated with a particular input
+ |      connection.
+ |
+ |  GetInputInformation(...)
+ |      V.GetInputInformation(int, int) -> vtkInformation
+ |      C++: vtkInformation *GetInputInformation(int port, int index)
+ |      V.GetInputInformation() -> vtkInformation
+ |      C++: vtkInformation *GetInputInformation()
+ |
+ |      Return the information object that is associated with a
+ |      particular input connection. This can be used to get meta-data
+ |      coming from the REQUEST_INFORMATION pass and set requests for the
+ |      REQUEST_UPDATE_EXTENT pass. NOTE: Do not use this in any of the
+ |      pipeline passes. Use the information objects passed as arguments
+ |      instead.
+ |
+ |  GetInputPortInformation(...)
+ |      V.GetInputPortInformation(int) -> vtkInformation
+ |      C++: vtkInformation *GetInputPortInformation(int port)
+ |
+ |      Get the information object associated with an input port.  There
+ |      is one input port per kind of input to the algorithm.  Each input
+ |      port tells executives what kind of data and downstream requests
+ |      this algorithm can handle for that input.
+ |
+ |  GetNumberOfInputConnections(...)
+ |      V.GetNumberOfInputConnections(int) -> int
+ |      C++: int GetNumberOfInputConnections(int port)
+ |
+ |      Get the number of inputs currently connected to a port.
+ |
+ |  GetNumberOfInputPorts(...)
+ |      V.GetNumberOfInputPorts() -> int
+ |      C++: int GetNumberOfInputPorts()
+ |
+ |      Get the number of input ports used by the algorithm.
+ |
+ |  GetNumberOfOutputPorts(...)
+ |      V.GetNumberOfOutputPorts() -> int
+ |      C++: int GetNumberOfOutputPorts()
+ |
+ |      Get the number of output ports provided by the algorithm.
+ |
+ |  GetOutputDataObject(...)
+ |      V.GetOutputDataObject(int) -> vtkDataObject
+ |      C++: vtkDataObject *GetOutputDataObject(int port)
+ |
+ |      Get the data object that will contain the algorithm output for
+ |      the given port.
+ |
+ |  GetOutputInformation(...)
+ |      V.GetOutputInformation(int) -> vtkInformation
+ |      C++: vtkInformation *GetOutputInformation(int port)
+ |
+ |      Return the information object that is associated with a
+ |      particular output port. This can be used to set meta-data coming
+ |      during the REQUEST_INFORMATION. NOTE: Do not use this in any of
+ |      the pipeline passes. Use the information objects passed as
+ |      arguments instead.
+ |
+ |  GetOutputPort(...)
+ |      V.GetOutputPort(int) -> vtkAlgorithmOutput
+ |      C++: vtkAlgorithmOutput *GetOutputPort(int index)
+ |      V.GetOutputPort() -> vtkAlgorithmOutput
+ |      C++: vtkAlgorithmOutput *GetOutputPort()
+ |
+ |      Get a proxy object corresponding to the given output port of this
+ |      algorithm.  The proxy object can be passed to another algorithm's
+ |      SetInputConnection(), AddInputConnection(), and
+ |      RemoveInputConnection() methods to modify pipeline connectivity.
+ |
+ |  GetOutputPortInformation(...)
+ |      V.GetOutputPortInformation(int) -> vtkInformation
+ |      C++: vtkInformation *GetOutputPortInformation(int port)
+ |
+ |      Get the information object associated with an output port.  There
+ |      is one output port per output from the algorithm.  Each output
+ |      port tells executives what kind of upstream requests this
+ |      algorithm can handle for that output.
+ |
+ |  GetProgress(...)
+ |      V.GetProgress() -> float
+ |      C++: virtual double GetProgress()
+ |
+ |      Get the execution progress of a process object.
+ |
+ |  GetProgressObserver(...)
+ |      V.GetProgressObserver() -> vtkProgressObserver
+ |      C++: virtual vtkProgressObserver *GetProgressObserver()
+ |
+ |      If an ProgressObserver is set, the algorithm will report progress
+ |      through it rather than directly. This means that it will call
+ |      UpdateProgress() on the ProgressObserver rather than itself
+ |      report it and set progress. This is most useful in situations
+ |      where multiple threads are executing an algorithm at the same
+ |      time and want to handle progress locally.
+ |
+ |  GetProgressScale(...)
+ |      V.GetProgressScale() -> float
+ |      C++: virtual double GetProgressScale()
+ |
+ |      Specify the shift and scale values to use to apply to the
+ |      progress amount when `UpdateProgress` is called. By default shift
+ |      is set to 0, and scale is set to 1.0. This is useful when the
+ |      vtkAlgorithm instance is used as an internal algorithm to solve
+ |      only a part of a whole problem.
+ |
+ |      If calling on a internal vtkAlgorithm, make sure you take into
+ |      consideration that values set of the outer vtkAlgorithm as well
+ |      since the outer vtkAlgorithm itself may be nested in another
+ |      algorithm.
+ |
+ |      ote SetProgressShiftScale does not modify the MTime of the
+ |      algorithm.
+ |
+ |  GetProgressShift(...)
+ |      V.GetProgressShift() -> float
+ |      C++: virtual double GetProgressShift()
+ |
+ |      Specify the shift and scale values to use to apply to the
+ |      progress amount when `UpdateProgress` is called. By default shift
+ |      is set to 0, and scale is set to 1.0. This is useful when the
+ |      vtkAlgorithm instance is used as an internal algorithm to solve
+ |      only a part of a whole problem.
+ |
+ |      If calling on a internal vtkAlgorithm, make sure you take into
+ |      consideration that values set of the outer vtkAlgorithm as well
+ |      since the outer vtkAlgorithm itself may be nested in another
+ |      algorithm.
+ |
+ |      ote SetProgressShiftScale does not modify the MTime of the
+ |      algorithm.
+ |
+ |  GetProgressText(...)
+ |      V.GetProgressText() -> string
+ |      C++: virtual char *GetProgressText()
+ |
+ |      Set the current text message associated with the progress state.
+ |      This may be used by a calling process/GUI. Note: Because
+ |      SetProgressText() is called from inside RequestData() it does not
+ |      modify the algorithm object. Algorithms are not allowed to modify
+ |      themselves from inside RequestData().
+ |
+ |  GetReleaseDataFlag(...)
+ |      V.GetReleaseDataFlag() -> int
+ |      C++: virtual int GetReleaseDataFlag()
+ |
+ |      Turn release data flag on or off for all output ports.
+ |
+ |  GetTotalNumberOfInputConnections(...)
+ |      V.GetTotalNumberOfInputConnections() -> int
+ |      C++: int GetTotalNumberOfInputConnections()
+ |
+ |      Get the total number of inputs for this algorithm
+ |
+ |  GetUpdateExtent(...)
+ |      V.GetUpdateExtent() -> (int, int, int, int, int, int)
+ |      C++: int *GetUpdateExtent()
+ |      V.GetUpdateExtent(int) -> (int, int, int, int, int, int)
+ |      C++: int *GetUpdateExtent(int port)
+ |      V.GetUpdateExtent(int, int, int, int, int, int)
+ |      C++: void GetUpdateExtent(int &x0, int &x1, int &y0, int &y1,
+ |          int &z0, int &z1)
+ |      V.GetUpdateExtent(int, int, int, int, int, int, int)
+ |      C++: void GetUpdateExtent(int port, int &x0, int &x1, int &y0,
+ |          int &y1, int &z0, int &z1)
+ |      V.GetUpdateExtent([int, int, int, int, int, int])
+ |      C++: void GetUpdateExtent(int extent[6])
+ |      V.GetUpdateExtent(int, [int, int, int, int, int, int])
+ |      C++: void GetUpdateExtent(int port, int extent[6])
+ |
+ |      These functions return the update extent for output ports that
+ |      use 3D extents. Where port is not specified, it is assumed to be
+ |      0.
+ |
+ |  GetUpdateGhostLevel(...)
+ |      V.GetUpdateGhostLevel() -> int
+ |      C++: int GetUpdateGhostLevel()
+ |      V.GetUpdateGhostLevel(int) -> int
+ |      C++: int GetUpdateGhostLevel(int port)
+ |
+ |      These functions return the update extent for output ports that
+ |      use piece extents. Where port is not specified, it is assumed to
+ |      be 0.
+ |
+ |  GetUpdateNumberOfPieces(...)
+ |      V.GetUpdateNumberOfPieces() -> int
+ |      C++: int GetUpdateNumberOfPieces()
+ |      V.GetUpdateNumberOfPieces(int) -> int
+ |      C++: int GetUpdateNumberOfPieces(int port)
+ |
+ |      These functions return the update extent for output ports that
+ |      use piece extents. Where port is not specified, it is assumed to
+ |      be 0.
+ |
+ |  GetUpdatePiece(...)
+ |      V.GetUpdatePiece() -> int
+ |      C++: int GetUpdatePiece()
+ |      V.GetUpdatePiece(int) -> int
+ |      C++: int GetUpdatePiece(int port)
+ |
+ |      These functions return the update extent for output ports that
+ |      use piece extents. Where port is not specified, it is assumed to
+ |      be 0.
+ |
+ |  HasExecutive(...)
+ |      V.HasExecutive() -> int
+ |      C++: int HasExecutive()
+ |
+ |      Check whether this algorithm has an assigned executive.  This
+ |      will NOT create a default executive.
+ |
+ |  INPUT_ARRAYS_TO_PROCESS(...)
+ |      V.INPUT_ARRAYS_TO_PROCESS() -> vtkInformationInformationVectorKey
+ |      C++: static vtkInformationInformationVectorKey *INPUT_ARRAYS_TO_PROCESS(
+ |          )
+ |
+ |      \ingroup InformationKeys
+ |
+ |  INPUT_CONNECTION(...)
+ |      V.INPUT_CONNECTION() -> vtkInformationIntegerKey
+ |      C++: static vtkInformationIntegerKey *INPUT_CONNECTION()
+ |
+ |      \ingroup InformationKeys
+ |
+ |  INPUT_IS_OPTIONAL(...)
+ |      V.INPUT_IS_OPTIONAL() -> vtkInformationIntegerKey
+ |      C++: static vtkInformationIntegerKey *INPUT_IS_OPTIONAL()
+ |
+ |      Keys used to specify input port requirements.\ingroup
+ |      InformationKeys
+ |
+ |  INPUT_IS_REPEATABLE(...)
+ |      V.INPUT_IS_REPEATABLE() -> vtkInformationIntegerKey
+ |      C++: static vtkInformationIntegerKey *INPUT_IS_REPEATABLE()
+ |
+ |      \ingroup InformationKeys
+ |
+ |  INPUT_PORT(...)
+ |      V.INPUT_PORT() -> vtkInformationIntegerKey
+ |      C++: static vtkInformationIntegerKey *INPUT_PORT()
+ |
+ |      \ingroup InformationKeys
+ |
+ |  INPUT_REQUIRED_DATA_TYPE(...)
+ |      V.INPUT_REQUIRED_DATA_TYPE() -> vtkInformationStringVectorKey
+ |      C++: static vtkInformationStringVectorKey *INPUT_REQUIRED_DATA_TYPE(
+ |          )
+ |
+ |      \ingroup InformationKeys
+ |
+ |  INPUT_REQUIRED_FIELDS(...)
+ |      V.INPUT_REQUIRED_FIELDS() -> vtkInformationInformationVectorKey
+ |      C++: static vtkInformationInformationVectorKey *INPUT_REQUIRED_FIELDS(
+ |          )
+ |
+ |      \ingroup InformationKeys
+ |
+ |  ModifyRequest(...)
+ |      V.ModifyRequest(vtkInformation, int) -> int
+ |      C++: virtual int ModifyRequest(vtkInformation *request, int when)
+ |
+ |      This method gives the algorithm a chance to modify the contents
+ |      of a request before or after (specified in the when argument) it
+ |      is forwarded. The default implementation is empty. Returns 1 on
+ |      success, 0 on failure. When can be either
+ |      vtkExecutive::BeforeForward or vtkExecutive::AfterForward.
+ |
+ |  ProcessRequest(...)
+ |      V.ProcessRequest(vtkInformation, vtkCollection,
+ |          vtkInformationVector) -> int
+ |      C++: vtkTypeBool ProcessRequest(vtkInformation *request,
+ |          vtkCollection *inInfo, vtkInformationVector *outInfo)
+ |
+ |      Version of ProcessRequest() that is wrapped. This converts the
+ |      collection to an array and calls the other version.
+ |
+ |  PropagateUpdateExtent(...)
+ |      V.PropagateUpdateExtent()
+ |      C++: virtual void PropagateUpdateExtent()
+ |
+ |      Propagate meta-data upstream.
+ |
+ |  ReleaseDataFlagOff(...)
+ |      V.ReleaseDataFlagOff()
+ |      C++: void ReleaseDataFlagOff()
+ |
+ |      Turn release data flag on or off for all output ports.
+ |
+ |  ReleaseDataFlagOn(...)
+ |      V.ReleaseDataFlagOn()
+ |      C++: void ReleaseDataFlagOn()
+ |
+ |      Turn release data flag on or off for all output ports.
+ |
+ |  RemoveAllInputConnections(...)
+ |      V.RemoveAllInputConnections(int)
+ |      C++: virtual void RemoveAllInputConnections(int port)
+ |
+ |      Removes all input connections.
+ |
+ |  RemoveAllInputs(...)
+ |      V.RemoveAllInputs()
+ |      C++: void RemoveAllInputs()
+ |
+ |      Remove all the input data.
+ |
+ |  RemoveInputConnection(...)
+ |      V.RemoveInputConnection(int, vtkAlgorithmOutput)
+ |      C++: virtual void RemoveInputConnection(int port,
+ |          vtkAlgorithmOutput *input)
+ |      V.RemoveInputConnection(int, int)
+ |      C++: virtual void RemoveInputConnection(int port, int idx)
+ |
+ |      Remove a connection from the given input port index.  See
+ |      SetInputConnection() for details on input connection.  This
+ |      method is the complement to AddInputConnection() in that it
+ |      removes only the connection specified without affecting other
+ |      connections.  Typical usage is
+ |
+ |      * filter2->RemoveInputConnection(0, filter1->GetOutputPort(0)).
+ |
+ |  SetAbortExecute(...)
+ |      V.SetAbortExecute(int)
+ |      C++: virtual void SetAbortExecute(vtkTypeBool _arg)
+ |
+ |      Set/Get the AbortExecute flag for the process object. Process
+ |      objects may handle premature termination of execution in
+ |      different ways.
+ |
+ |  SetDefaultExecutivePrototype(...)
+ |      V.SetDefaultExecutivePrototype(vtkExecutive)
+ |      C++: static void SetDefaultExecutivePrototype(vtkExecutive *proto)
+ |
+ |      If the DefaultExecutivePrototype is set, a copy of it is created
+ |      in CreateDefaultExecutive() using NewInstance().
+ |
+ |  SetExecutive(...)
+ |      V.SetExecutive(vtkExecutive)
+ |      C++: virtual void SetExecutive(vtkExecutive *executive)
+ |
+ |      Set this algorithm's executive.  This algorithm is removed from
+ |      any executive to which it has previously been assigned and then
+ |      assigned to the given executive.
+ |
+ |  SetInformation(...)
+ |      V.SetInformation(vtkInformation)
+ |      C++: virtual void SetInformation(vtkInformation *)
+ |
+ |      Set/Get the information object associated with this algorithm.
+ |
+ |  SetInputArrayToProcess(...)
+ |      V.SetInputArrayToProcess(int, int, int, int, string)
+ |      C++: virtual void SetInputArrayToProcess(int idx, int port,
+ |          int connection, int fieldAssociation, const char *name)
+ |      V.SetInputArrayToProcess(int, int, int, int, int)
+ |      C++: virtual void SetInputArrayToProcess(int idx, int port,
+ |          int connection, int fieldAssociation, int fieldAttributeType)
+ |      V.SetInputArrayToProcess(int, vtkInformation)
+ |      C++: virtual void SetInputArrayToProcess(int idx,
+ |          vtkInformation *info)
+ |      V.SetInputArrayToProcess(int, int, int, string, string)
+ |      C++: virtual void SetInputArrayToProcess(int idx, int port,
+ |          int connection, const char *fieldAssociation,
+ |          const char *attributeTypeorName)
+ |
+ |      Set the input data arrays that this algorithm will process.
+ |      Specifically the idx array that this algorithm will process
+ |      (starting from 0) is the array on port, connection with the
+ |      specified association and name or attribute type (such as
+ |      SCALARS). The fieldAssociation refers to which field in the data
+ |      object the array is stored. See vtkDataObject::FieldAssociations
+ |      for detail.
+ |
+ |  SetInputConnection(...)
+ |      V.SetInputConnection(int, vtkAlgorithmOutput)
+ |      C++: virtual void SetInputConnection(int port,
+ |          vtkAlgorithmOutput *input)
+ |      V.SetInputConnection(vtkAlgorithmOutput)
+ |      C++: virtual void SetInputConnection(vtkAlgorithmOutput *input)
+ |
+ |      Set the connection for the given input port index.  Each input
+ |      port of a filter has a specific purpose.  A port may have zero or
+ |      more connections and the required number is specified by each
+ |      filter.  Setting the connection with this method removes all
+ |      other connections from the port.  To add more than one connection
+ |      use AddInputConnection().
+ |
+ |      * The input for the connection is the output port of another
+ |      * filter, which is obtained with GetOutputPort().  Typical usage
+ |        is
+ |
+ |      * filter2->SetInputConnection(0, filter1->GetOutputPort(0)).
+ |
+ |  SetInputDataObject(...)
+ |      V.SetInputDataObject(int, vtkDataObject)
+ |      C++: virtual void SetInputDataObject(int port,
+ |          vtkDataObject *data)
+ |      V.SetInputDataObject(vtkDataObject)
+ |      C++: virtual void SetInputDataObject(vtkDataObject *data)
+ |
+ |      Sets the data-object as an input on the given port index. Setting
+ |      the input with this method removes all other connections from the
+ |      port. Internally, this method creates a vtkTrivialProducer
+ |      instance and sets that as the input-connection for the given
+ |      port. It is safe to call this method repeatedly with the same
+ |      input data object. The MTime of the vtkAlgorithm will not change
+ |      unless the data object changed.
+ |
+ |  SetProgress(...)
+ |      V.SetProgress(float)
+ |      C++: void SetProgress(double)
+ |
+ |      `SetProgress` is deprecated. Subclasses should use
+ |      `UpdateProgress` to report progress updates.
+ |
+ |  SetProgressObserver(...)
+ |      V.SetProgressObserver(vtkProgressObserver)
+ |      C++: void SetProgressObserver(vtkProgressObserver *)
+ |
+ |      If an ProgressObserver is set, the algorithm will report progress
+ |      through it rather than directly. This means that it will call
+ |      UpdateProgress() on the ProgressObserver rather than itself
+ |      report it and set progress. This is most useful in situations
+ |      where multiple threads are executing an algorithm at the same
+ |      time and want to handle progress locally.
+ |
+ |  SetProgressShiftScale(...)
+ |      V.SetProgressShiftScale(float, float)
+ |      C++: void SetProgressShiftScale(double shift, double scale)
+ |
+ |      Specify the shift and scale values to use to apply to the
+ |      progress amount when `UpdateProgress` is called. By default shift
+ |      is set to 0, and scale is set to 1.0. This is useful when the
+ |      vtkAlgorithm instance is used as an internal algorithm to solve
+ |      only a part of a whole problem.
+ |
+ |      If calling on a internal vtkAlgorithm, make sure you take into
+ |      consideration that values set of the outer vtkAlgorithm as well
+ |      since the outer vtkAlgorithm itself may be nested in another
+ |      algorithm.
+ |
+ |      ote SetProgressShiftScale does not modify the MTime of the
+ |      algorithm.
+ |
+ |  SetProgressText(...)
+ |      V.SetProgressText(string)
+ |      C++: void SetProgressText(const char *ptext)
+ |
+ |      Set the current text message associated with the progress state.
+ |      This may be used by a calling process/GUI. Note: Because
+ |      SetProgressText() is called from inside RequestData() it does not
+ |      modify the algorithm object. Algorithms are not allowed to modify
+ |      themselves from inside RequestData().
+ |
+ |  SetReleaseDataFlag(...)
+ |      V.SetReleaseDataFlag(int)
+ |      C++: virtual void SetReleaseDataFlag(int)
+ |
+ |      Turn release data flag on or off for all output ports.
+ |
+ |  Update(...)
+ |      V.Update(int)
+ |      C++: virtual void Update(int port)
+ |      V.Update()
+ |      C++: virtual void Update()
+ |      V.Update(int, vtkInformationVector) -> int
+ |      C++: virtual vtkTypeBool Update(int port,
+ |          vtkInformationVector *requests)
+ |      V.Update(vtkInformation) -> int
+ |      C++: virtual vtkTypeBool Update(vtkInformation *requests)
+ |
+ |      Bring this algorithm's outputs up-to-date.
+ |
+ |  UpdateDataObject(...)
+ |      V.UpdateDataObject()
+ |      C++: virtual void UpdateDataObject()
+ |
+ |      Create output object(s).
+ |
+ |  UpdateExtent(...)
+ |      V.UpdateExtent((int, int, int, int, int, int)) -> int
+ |      C++: virtual int UpdateExtent(const int extents[6])
+ |
+ |      Convenience method to update an algorithm after passing requests
+ |      to its first output port. Supports extent request.
+ |
+ |  UpdateExtentIsEmpty(...)
+ |      V.UpdateExtentIsEmpty(vtkInformation, vtkDataObject) -> int
+ |      C++: int UpdateExtentIsEmpty(vtkInformation *pinfo,
+ |          vtkDataObject *output)
+ |      V.UpdateExtentIsEmpty(vtkInformation, int) -> int
+ |      C++: int UpdateExtentIsEmpty(vtkInformation *pinfo,
+ |          int extentType)
+ |
+ |      This detects when the UpdateExtent will generate no data This
+ |      condition is satisfied when the UpdateExtent has zero volume
+ |      (0,-1,...) or the UpdateNumberOfPieces is 0. The source uses this
+ |      call to determine whether to call Execute.
+ |
+ |  UpdateInformation(...)
+ |      V.UpdateInformation()
+ |      C++: virtual void UpdateInformation()
+ |
+ |      Bring the algorithm's information up-to-date.
+ |
+ |  UpdatePiece(...)
+ |      V.UpdatePiece(int, int, int, (int, int, int, int, int, int))
+ |          -> int
+ |      C++: virtual int UpdatePiece(int piece, int numPieces,
+ |          int ghostLevels, const int extents[6]=nullptr)
+ |
+ |      Convenience method to update an algorithm after passing requests
+ |      to its first output port. See documentation for Update(int port,
+ |      vtkInformationVector* requests) for details. Supports piece and
+ |      extent (optional) requests.
+ |
+ |  UpdateProgress(...)
+ |      V.UpdateProgress(float)
+ |      C++: void UpdateProgress(double amount)
+ |
+ |      Update the progress of the process object. If a ProgressMethod
+ |      exists, executes it.  Then set the Progress ivar to amount. The
+ |      parameter amount should range between (0,1).
+ |
+ |  UpdateTimeStep(...)
+ |      V.UpdateTimeStep(float, int, int, int, (int, int, int, int, int,
+ |          int)) -> int
+ |      C++: virtual int UpdateTimeStep(double time, int piece=-1,
+ |          int numPieces=1, int ghostLevels=0,
+ |          const int extents[6]=nullptr)
+ |
+ |      Convenience method to update an algorithm after passing requests
+ |      to its first output port. See documentation for Update(int port,
+ |      vtkInformationVector* requests) for details. Supports time, piece
+ |      (optional) and extent (optional) requests.
+ |
+ |  UpdateWholeExtent(...)
+ |      V.UpdateWholeExtent()
+ |      C++: virtual void UpdateWholeExtent()
+ |
+ |      Bring this algorithm's outputs up-to-date.
+ |
+ |  ----------------------------------------------------------------------
+ |  Data and other attributes inherited from vtkmodules.vtkCommonExecutionModel.vtkAlgorithm:
+ |
+ |  DEFAULT_PRECISION = 2
+ |
+ |  DOUBLE_PRECISION = 1
+ |
+ |  DesiredOutputPrecision = <class 'vtkmodules.vtkCommonExecutionModel.vt...
+ |      int([x]) -> integer
+ |      int(x, base=10) -> integer
+ |
+ |      Convert a number or string to an integer, or return 0 if no arguments
+ |      are given.  If x is a number, return x.__int__().  For floating point
+ |      numbers, this truncates towards zero.
+ |
+ |      If x is not a number or if base is given, then x must be a string,
+ |      bytes, or bytearray instance representing an integer literal in the
+ |      given base.  The literal can be preceded by '+' or '-' and be surrounded
+ |      by whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.
+ |      Base 0 means to interpret the base from the string as an integer literal.
+ |      >>> int('0b100', base=0)
+ |      4
+ |
+ |  SINGLE_PRECISION = 0
+ |
+ |  ----------------------------------------------------------------------
+ |  Methods inherited from vtkmodules.vtkCommonCore.vtkObject:
+ |
+ |  AddObserver(...)
+ |      V.AddObserver(int, function) -> int
+ |      C++: unsigned long AddObserver(const char *event,
+ |          vtkCommand *command, float priority=0.0f)
+ |
+ |      Add an event callback function(vtkObject, int) for an event type.
+ |      Returns a handle that can be used with RemoveEvent(int).
+ |
+ |  BreakOnError(...)
+ |      V.BreakOnError()
+ |      C++: static void BreakOnError()
+ |
+ |      This method is called when vtkErrorMacro executes. It allows the
+ |      debugger to break on error.
+ |
+ |  DebugOff(...)
+ |      V.DebugOff()
+ |      C++: virtual void DebugOff()
+ |
+ |      Turn debugging output off.
+ |
+ |  DebugOn(...)
+ |      V.DebugOn()
+ |      C++: virtual void DebugOn()
+ |
+ |      Turn debugging output on.
+ |
+ |  GetCommand(...)
+ |      V.GetCommand(int) -> vtkCommand
+ |      C++: vtkCommand *GetCommand(unsigned long tag)
+ |
+ |      Allow people to add/remove/invoke observers (callbacks) to any
+ |      VTK object.  This is an implementation of the subject/observer
+ |      design pattern. An observer is added by specifying an event to
+ |      respond to and a vtkCommand to execute. It returns an unsigned
+ |      long tag which can be used later to remove the event or retrieve
+ |      the command. When events are invoked, the observers are called in
+ |      the order they were added. If a priority value is specified, then
+ |      the higher priority commands are called first. A command may set
+ |      an abort flag to stop processing of the event. (See vtkCommand.h
+ |      for more information.)
+ |
+ |  GetDebug(...)
+ |      V.GetDebug() -> bool
+ |      C++: bool GetDebug()
+ |
+ |      Get the value of the debug flag.
+ |
+ |  GetGlobalWarningDisplay(...)
+ |      V.GetGlobalWarningDisplay() -> int
+ |      C++: static int GetGlobalWarningDisplay()
+ |
+ |      This is a global flag that controls whether any debug, warning or
+ |      error messages are displayed.
+ |
+ |  GetMTime(...)
+ |      V.GetMTime() -> int
+ |      C++: virtual vtkMTimeType GetMTime()
+ |
+ |      Return this object's modified time.
+ |
+ |  GlobalWarningDisplayOff(...)
+ |      V.GlobalWarningDisplayOff()
+ |      C++: static void GlobalWarningDisplayOff()
+ |
+ |      This is a global flag that controls whether any debug, warning or
+ |      error messages are displayed.
+ |
+ |  GlobalWarningDisplayOn(...)
+ |      V.GlobalWarningDisplayOn()
+ |      C++: static void GlobalWarningDisplayOn()
+ |
+ |      This is a global flag that controls whether any debug, warning or
+ |      error messages are displayed.
+ |
+ |  HasObserver(...)
+ |      V.HasObserver(int, vtkCommand) -> int
+ |      C++: vtkTypeBool HasObserver(unsigned long event, vtkCommand *)
+ |      V.HasObserver(string, vtkCommand) -> int
+ |      C++: vtkTypeBool HasObserver(const char *event, vtkCommand *)
+ |      V.HasObserver(int) -> int
+ |      C++: vtkTypeBool HasObserver(unsigned long event)
+ |      V.HasObserver(string) -> int
+ |      C++: vtkTypeBool HasObserver(const char *event)
+ |
+ |      Allow people to add/remove/invoke observers (callbacks) to any
+ |      VTK object.  This is an implementation of the subject/observer
+ |      design pattern. An observer is added by specifying an event to
+ |      respond to and a vtkCommand to execute. It returns an unsigned
+ |      long tag which can be used later to remove the event or retrieve
+ |      the command. When events are invoked, the observers are called in
+ |      the order they were added. If a priority value is specified, then
+ |      the higher priority commands are called first. A command may set
+ |      an abort flag to stop processing of the event. (See vtkCommand.h
+ |      for more information.)
+ |
+ |  InvokeEvent(...)
+ |      V.InvokeEvent(int, void) -> int
+ |      C++: int InvokeEvent(unsigned long event, void *callData)
+ |      V.InvokeEvent(string, void) -> int
+ |      C++: int InvokeEvent(const char *event, void *callData)
+ |      V.InvokeEvent(int) -> int
+ |      C++: int InvokeEvent(unsigned long event)
+ |      V.InvokeEvent(string) -> int
+ |      C++: int InvokeEvent(const char *event)
+ |
+ |      This method invokes an event and return whether the event was
+ |      aborted or not. If the event was aborted, the return value is 1,
+ |      otherwise it is 0.
+ |
+ |  Modified(...)
+ |      V.Modified()
+ |      C++: virtual void Modified()
+ |
+ |      Update the modification time for this object. Many filters rely
+ |      on the modification time to determine if they need to recompute
+ |      their data. The modification time is a unique monotonically
+ |      increasing unsigned long integer.
+ |
+ |  RemoveAllObservers(...)
+ |      V.RemoveAllObservers()
+ |      C++: void RemoveAllObservers()
+ |
+ |  RemoveObserver(...)
+ |      V.RemoveObserver(vtkCommand)
+ |      C++: void RemoveObserver(vtkCommand *)
+ |      V.RemoveObserver(int)
+ |      C++: void RemoveObserver(unsigned long tag)
+ |
+ |      Allow people to add/remove/invoke observers (callbacks) to any
+ |      VTK object.  This is an implementation of the subject/observer
+ |      design pattern. An observer is added by specifying an event to
+ |      respond to and a vtkCommand to execute. It returns an unsigned
+ |      long tag which can be used later to remove the event or retrieve
+ |      the command. When events are invoked, the observers are called in
+ |      the order they were added. If a priority value is specified, then
+ |      the higher priority commands are called first. A command may set
+ |      an abort flag to stop processing of the event. (See vtkCommand.h
+ |      for more information.)
+ |
+ |  RemoveObservers(...)
+ |      V.RemoveObservers(int, vtkCommand)
+ |      C++: void RemoveObservers(unsigned long event, vtkCommand *)
+ |      V.RemoveObservers(string, vtkCommand)
+ |      C++: void RemoveObservers(const char *event, vtkCommand *)
+ |      V.RemoveObservers(int)
+ |      C++: void RemoveObservers(unsigned long event)
+ |      V.RemoveObservers(string)
+ |      C++: void RemoveObservers(const char *event)
+ |
+ |      Allow people to add/remove/invoke observers (callbacks) to any
+ |      VTK object.  This is an implementation of the subject/observer
+ |      design pattern. An observer is added by specifying an event to
+ |      respond to and a vtkCommand to execute. It returns an unsigned
+ |      long tag which can be used later to remove the event or retrieve
+ |      the command. When events are invoked, the observers are called in
+ |      the order they were added. If a priority value is specified, then
+ |      the higher priority commands are called first. A command may set
+ |      an abort flag to stop processing of the event. (See vtkCommand.h
+ |      for more information.)
+ |
+ |  SetDebug(...)
+ |      V.SetDebug(bool)
+ |      C++: void SetDebug(bool debugFlag)
+ |
+ |      Set the value of the debug flag. A true value turns debugging on.
+ |
+ |  SetGlobalWarningDisplay(...)
+ |      V.SetGlobalWarningDisplay(int)
+ |      C++: static void SetGlobalWarningDisplay(int val)
+ |
+ |      This is a global flag that controls whether any debug, warning or
+ |      error messages are displayed.
+ |
+ |  ----------------------------------------------------------------------
+ |  Methods inherited from vtkmodules.vtkCommonCore.vtkObjectBase:
+ |
+ |  FastDelete(...)
+ |      V.FastDelete()
+ |      C++: virtual void FastDelete()
+ |
+ |      Delete a reference to this object.  This version will not invoke
+ |      garbage collection and can potentially leak the object if it is
+ |      part of a reference loop.  Use this method only when it is known
+ |      that the object has another reference and would not be collected
+ |      if a full garbage collection check were done.
+ |
+ |  GetAddressAsString(...)
+ |      V.GetAddressAsString(string) -> string
+ |      C++: const char *GetAddressAsString()
+ |
+ |      Get address of C++ object in format 'Addr=%p' after casting to
+ |      the specified type.  You can get the same information from o.__this__.
+ |
+ |  GetClassName(...)
+ |      V.GetClassName() -> string
+ |      C++: const char *GetClassName()
+ |
+ |      Return the class name as a string.
+ |
+ |  GetIsInMemkind(...)
+ |      V.GetIsInMemkind() -> bool
+ |      C++: bool GetIsInMemkind()
+ |
+ |      A local state flag that remembers whether this object lives in
+ |      the normal or extended memory space.
+ |
+ |  GetReferenceCount(...)
+ |      V.GetReferenceCount() -> int
+ |      C++: int GetReferenceCount()
+ |
+ |      Return the current reference count of this object.
+ |
+ |  GetUsingMemkind(...)
+ |      V.GetUsingMemkind() -> bool
+ |      C++: static bool GetUsingMemkind()
+ |
+ |      A global state flag that controls whether vtkObjects are
+ |      constructed in the usual way (the default) or within the extended
+ |      memory space.
+ |
+ |  InitializeObjectBase(...)
+ |      V.InitializeObjectBase()
+ |      C++: void InitializeObjectBase()
+ |
+ |  Register(...)
+ |      V.Register(vtkObjectBase)
+ |      C++: virtual void Register(vtkObjectBase *o)
+ |
+ |      Increase the reference count by 1.
+ |
+ |  SetMemkindDirectory(...)
+ |      V.SetMemkindDirectory(string)
+ |      C++: static void SetMemkindDirectory(const char *directoryname)
+ |
+ |      The name of a directory, ideally mounted -o dax, to memory map an
+ |      extended memory space within. This must be called before any
+ |      objects are constructed in the extended space. It can not be
+ |      changed once setup.
+ |
+ |  SetReferenceCount(...)
+ |      V.SetReferenceCount(int)
+ |      C++: void SetReferenceCount(int)
+ |
+ |      Sets the reference count. (This is very dangerous, use with
+ |      care.)
+ |
+ |  UnRegister(...)
+ |      V.UnRegister(vtkObjectBase)
+ |      C++: virtual void UnRegister(vtkObjectBase *o)
+ |
+ |      Decrease the reference count (release by another object). This
+ |      has the same effect as invoking Delete() (i.e., it reduces the
+ |      reference count by 1).

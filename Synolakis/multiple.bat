@@ -5,15 +5,25 @@ rem Don't remove the two jump line after than the next line [set NL=^]
 set NL=^
 
 
-call CaseSolitaryWall.bat 0.05
+call runcase.bat KLL1
 if not "%ERRORLEVEL%" == "0" goto fail
 
-
-call CaseSolitaryWall.bat 0.15
+call runcase.bat KLL2
 if not "%ERRORLEVEL%" == "0" goto fail
 
+call runcase.bat KLL3
+if not "%ERRORLEVEL%" == "0" goto fail
 
-call CaseSolitaryWall.bat 0.20
+call runcase.bat 1
+if not "%ERRORLEVEL%" == "0" goto fail
+
+call runcase.bat 2
+if not "%ERRORLEVEL%" == "0" goto fail
+
+call runcase.bat 3
+if not "%ERRORLEVEL%" == "0" goto fail
+
+call runcase.bat 4
 if not "%ERRORLEVEL%" == "0" goto fail
 
 :success

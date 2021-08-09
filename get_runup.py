@@ -1,6 +1,8 @@
+from numpy import linalg
 from vtk.util import numpy_support as VN
 from tqdm import tqdm
 import pandas as pd
+import numpy as np
 import vtk
 import os
 
@@ -59,6 +61,17 @@ def numpy_to_df(array, columns):
 
 def combine_df(*dfs):
     c = pd.concat(dfs, axis=1, join='inner')
+    return c
+
+def get_vel_magnitude(polydata):
+    vela = get_array(polydata, 'Vel')
+    df = numpy_to_df(vela, ['x', 'y', 'z'])
+    return df.apply(np.linalg.norm, axis=1)
+
+def vel_df(polydata):
+    df1 = numpy_to_df(get_array(polydata, 'Vel'), ['x', 'y', 'z'])
+    df2 = get_vel_magnitude(polydata)
+    c = pd.concat((df1, df2.rename('magnitude')), axis=1)
     return c
 
 def get_maximum_runup(dirname):

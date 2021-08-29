@@ -72,7 +72,7 @@
                     <waveheight value="0.087" comment="Wave height" />
                     <durationcoef value="1" comment="Coefficient of movement duration (def=1)" />
                     <pistondir x="1" y="0" z="0" comment="Movement direction (def=(1,0,0))" />
-                    <savemotion time="5" timedt="0.02" xpos="8" comment="Saves motion data. xpos is optional for elevation calculation" />
+                    <savemotion time="20" timedt="0.02" xpos="8" comment="Saves motion data. xpos is optional for elevation calculation" />
                 </piston_solitary>
             </wavepaddles>
         </special>
@@ -95,7 +95,7 @@
             <parameter key="DtFixed" value="0" comment="Fixed Dt value. Use 0 to disable (default=disabled)" units_comment="seconds" />
             <parameter key="DtFixedFile" value="NONE" comment="Dt values are loaded from file. Use NONE to disable (default=disabled)" units_comment="milliseconds (ms)" />
             <parameter key="DtAllParticles" value="0" comment="Velocity of particles used to calculate DT. 1:All, 0:Only fluid/floating (default=0)" />
-            <parameter key="TimeMax" value="5" comment="Time of simulation" units_comment="seconds" />
+            <parameter key="TimeMax" value="20" comment="Time of simulation" units_comment="seconds" />
             <parameter key="TimeOut" value="0.02" comment="Time out data" units_comment="seconds" />
             <parameter key="RhopOutMin" value="700" comment="Minimum rhop valid (default=700)" units_comment="kg/m^3" />
             <parameter key="RhopOutMax" value="1300" comment="Maximum rhop valid (default=1300)" units_comment="kg/m^3" />

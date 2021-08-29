@@ -16,9 +16,9 @@
             <mkorientfluid mk="0" orient="Xyz" />
         </mkconfig>
         <geometry>
-            <definition dp="0.03" comment="Initial inter-particle distance" units_comment="metres (m)">
+            <definition dp="0.02" comment="Initial inter-particle distance" units_comment="metres (m)">
                 <pointmin x="-1" y="0" z="-1" />
-                <pointmax x="36" y="0" z="3" />
+                <pointmax x="6" y="0" z="1.5" />
             </definition>
             <commands>
                 <mainlist>
@@ -29,26 +29,21 @@
                     <drawbox>
                         <boxfill>solid</boxfill>
                         <point x="-0.02" y="-1" z="0" />
-                        <size x="0.02" y="2" z="3" />
+                        <size x="0.02" y="2" z="1" />
                     </drawbox>
                     <!-- Boundaries -->
                     <setmkbound mk="0" />
-                    <drawprism mask="1 | 2 | 6 | 7">
-                        <point x="16" y="-1" z="1" />
-                        <point x="15" y="-1" z="0" />
-                        <point x="-0.5" y="-1" z="0" />
-                        <point x="-0.5" y="-1" z="1" />
-                        <point x="16" y="1" z="1" />
-                        <point x="15" y="1" z="0" />
-                        <point x="-0.5" y="1" z="0" />
-                        <point x="-0.5" y="1" z="1" />
-                    </drawprism>
+                    <drawbox>
+                        <boxfill>bottom | right | front | back</boxfill>
+                        <point x="-0.1" y="-1" z="0" />
+                        <size x="5.01" y="2" z="1.5" />
+                    </drawbox>
                     <!-- Fluid -->
                     <setmkfluid mk="0" />
                     <fillbox x="0.5" y="0" z="0.1">
                         <modefill>void</modefill>
                         <point x="-1" y="-1" z="-1" />
-                        <size x="31" y="3" z="1.3" />
+                        <size x="6.00" y="3" z="1.5" />
                     </fillbox>
                     <shapeout file="" reset="true" />
                 </mainlist>
@@ -68,11 +63,11 @@
                     <mkbound value="10" comment="Mk-Bound of selected particles" />
                     <theory value="2" comment="Theory of generation 1:Rayleigh (Serre 1953), 2: Boussinesq (Goring 1978) 3: KdV (Clamond and Germain 1999) (def=2)" />
                     <start value="0" comment="Start time (def=0)" />
-                    <depth value="0.3" comment="Water depth" />
-                    <waveheight value="0.144" comment="Wave height" />
+                    <depth value="0.5" comment="Water depth" />
+                    <waveheight value="0.05" comment="Wave height" />
                     <durationcoef value="1" comment="Coefficient of movement duration (def=1)" />
                     <pistondir x="1" y="0" z="0" comment="Movement direction (def=(1,0,0))" />
-                    <savemotion time="20" timedt="0.02" xpos="8" comment="Saves motion data. xpos is optional for elevation calculation" />
+                    <savemotion time="5" timedt="0.02" xpos="8" comment="Saves motion data. xpos is optional for elevation calculation" />
                 </piston_solitary>
             </wavepaddles>
         </special>
@@ -95,7 +90,7 @@
             <parameter key="DtFixed" value="0" comment="Fixed Dt value. Use 0 to disable (default=disabled)" units_comment="seconds" />
             <parameter key="DtFixedFile" value="NONE" comment="Dt values are loaded from file. Use NONE to disable (default=disabled)" units_comment="milliseconds (ms)" />
             <parameter key="DtAllParticles" value="0" comment="Velocity of particles used to calculate DT. 1:All, 0:Only fluid/floating (default=0)" />
-            <parameter key="TimeMax" value="20" comment="Time of simulation" units_comment="seconds" />
+            <parameter key="TimeMax" value="5" comment="Time of simulation" units_comment="seconds" />
             <parameter key="TimeOut" value="0.02" comment="Time out data" units_comment="seconds" />
             <parameter key="RhopOutMin" value="700" comment="Minimum rhop valid (default=700)" units_comment="kg/m^3" />
             <parameter key="RhopOutMax" value="1300" comment="Maximum rhop valid (default=1300)" units_comment="kg/m^3" />

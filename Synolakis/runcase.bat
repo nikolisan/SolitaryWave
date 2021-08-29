@@ -50,10 +50,10 @@ if not "%ERRORLEVEL%" == "0" goto fail
 %dualsphysicscpu% %dirout%/%name% %dirout% -dirdataout data -svres
 if not "%ERRORLEVEL%" == "0" goto fail
 
-@REM :postprocessing
-@REM set dirout2=%dirout%\particles
-@REM %partvtk% -dirin %diroutdata% -savevtk %dirout2%/PartFluid -onlytype:-all,+fluid
-@REM if not "%ERRORLEVEL%" == "0" goto fail
+:postprocessing
+set dirout2=%dirout%\particles
+%partvtk% -dirin %diroutdata% -savevtk %dirout2%/PartFluid -onlytype:-all,+fluid
+if not "%ERRORLEVEL%" == "0" goto fail
 
 @REM %partvtk% -dirin %diroutdata% -savevtk %dirout2%/PartPiston -onlytype:-all,+moving
 @REM if not "%ERRORLEVEL%" == "0" goto fail
